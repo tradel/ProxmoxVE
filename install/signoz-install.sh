@@ -19,8 +19,14 @@ $STD apt install -y \
   ca-certificates
 msg_ok "Installed Dependencies"
 
+echo "Ready to install otel collector. Press Enter."
+read
+
 # TODO: move back to line 156 after testing
 fetch_and_deploy_gh_release "signoz-otel-collector" "SigNoz/signoz-otel-collector" "prebuild" "v0.129.14" "/opt/signoz-otel-collector" "signoz-otel-collector_linux_amd64.tar.gz"
+
+echo "Ready to install Java. Press Enter."
+read
 
 JAVA_VERSION="21" setup_java
 
